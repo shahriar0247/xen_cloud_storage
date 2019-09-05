@@ -1,4 +1,4 @@
-from flask import Flask, render_template,request
+from flask import Flask, render_template,request, request
 import os
 
 dirloc = "/home/dkolate"
@@ -30,3 +30,11 @@ def query_example():
     print("location:                ", location)
     dirlist, currentdir = getfolderlist(location)
     return render_template("main.html", dirlist=dirlist, currentdir=currentdir)
+
+@app.route('/login', methods=['GET', 'POST'])
+def loginpage():
+    if request.method == "POST":
+        userdetails = request.form
+        username = userdetails['username']
+        password = userdetails['password']
+    return render_template("login.html")
