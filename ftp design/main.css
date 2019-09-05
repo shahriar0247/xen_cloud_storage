@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.a {
+    background: rgb(255, 65, 65);
+    color: white;
+    padding: 10%;
+    padding-top: 1%;
+    padding-bottom: 3%;
+    margin: 5%;
+    border-radius: 10px;
+}
+
+.b {
+    margin: 20%;
+    margin-top: 30%;
+}
+
+.b p {
+    margin-bottom: 3%;
+}
+
+.b input {
+    margin-bottom: 10%;
+}
+
+.b .button {
+    background: none;
+    border: 1px rgb(255, 65, 65) solid;
+    padding: 7%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    transition: all 200ms;
+    color: rgb(255, 57, 57);
+}
+
+.b .button:hover {
+    background: rgb(255, 65, 65);
+    color: white;
+}
+
+.b .textbox {
+    border: 1px black solid;
+    padding: 3%;
+    transition: all 200ms;
+}
+
+.b .textbox:hover {
+    border: 1px rgb(255, 57, 57) solid;
+}
+
+.b .textbox:focus {
+    border: 1px rgb(255, 57, 57) solid;
+    outline: none;
+    padding: 2%;
+}
