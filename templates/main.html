@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <title>Xen FTP</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif
+        }
+        
+        .filename {
+            background: #2f90ff;
+            color: white;
+            padding: 20px;
+            margin: 20px;
+            margin-right: 5px;
+            line-height: 70px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 150%
+        }
+        
+        .filetype {
+            font-size: 90%
+        }
+    </style>
+</head>
+
+<body>
+    {% for a in range(0, number_of_files) %}
+    <li><a href="/path?location={{currentdir+ 'jf..>' +filename[a]}}" class="filename">{{filename[a]}}
+    </a><span class="filetype">{{filetype[a]}}</span>
+    </li>{% endfor %}
+</body>
+
+</html>
