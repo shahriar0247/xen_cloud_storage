@@ -1,0 +1,85 @@
+<html>
+
+<head>
+    <title>Xen FTP</title>
+
+    <link rel="stylesheet" href="static/main/main.css">
+</head>
+
+<body>
+    <div class="a">
+        {% set currentdir1 = currentdir.replace("jf", "") %} {% set currentdir1 = currentdir1.replace("][", " > ") %}
+        <p>{{currentdir1}}</p>
+    </div>
+    <div class="nav1">
+
+    </div>
+    <div class="b">
+
+        {% for a in range(0, number_of_files) %}
+        <div class="ba" id="ba{{a}}">
+            <script>
+                function clicking() {
+                    var filename = document.getElementsByClassName("filename")
+                    var ba = document.getElementsByClassName('ba')
+                    var filetype = document.getElementsByClassName('filetype')
+
+
+                    for (var i = 0, len = filename.length; i < len; i++) {
+                        filename[i].style.color = "#3D3D3D"
+                        ba[i].style.background = "white"
+                        filetype[i].style.color = "#222222"
+                    }
+                }
+                ba = document.getElementById('ba{{a}}');
+
+                ba.addEventListener("click", function() {
+                    clicking();
+                    ba = document.getElementById('ba{{a}}');
+                    filetype = document.getElementById('filetype{{a}}')
+                    filename = document.getElementById('filename{{a}}');
+                    ba.style.background = '#303F9F';
+                    filetype.style.color = '#f0f0f0';
+                    filename.style.color = '#FFFFFF';
+                });
+
+                ba.addEventListener('mouseout', function() {
+                    document.getElementById('filename{{a}}').innerHTML = '{{filename1[a]}}'
+                })
+                ba.addEventListener("mouseover", function() {
+                    document.getElementById('filename{{a}}').innerHTML = '{{filename[a]}}'
+                })
+                ba.addEventListener("dblclick", function() {
+                       window.location = '/path?location={{currentdir+ "jf][" +filename[a]}}'
+                    })
+           
+            </script>
+
+
+            <a class="link">
+                {% if filetype[a] == "folder" %}
+                <img src="static/images/folder-blue-icon.png" alt="folder icon" class="icon">
+                {%else%}
+                <img src="static/images/file-icon.png" alt="file icon" class="icon">
+                {% endif %}
+                <p class="filename" id="filename{{a}}">{{filename1[a]}}</p>
+                <p class="filetype" id="filetype{{a}}">{{filetype[a]}}</p>
+            </a>
+        </div>
+        {% endfor %}</div>
+    <div class="nav2">
+        <div class="nav21">
+            <ul>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="c"></div>
+   
+    </script>
+</body>
+
+
+</html>
