@@ -1,0 +1,162 @@
+<html>
+
+<head>
+    <title>Xen FTP</title>
+
+    <link rel="stylesheet" href="static/main/main.css">
+</head>
+
+<body>
+    <div class="a1">
+        <div class="a1a"> {% set currentdir = currentdir.replace("jf][", "/") %}
+            <p>{{currentdir}}</p>
+        </div>
+    </div>
+    <div class="a2">
+        <div class="a">
+
+            <div class="ab">
+                {% set currentdir = currentdir.replace("jf][", "/") %}
+                <form action="/upload" method="POST" enctype="multipart/form-data" id="upload-form">
+                    <input id="file-picker" type="file" name="_file" multiple>
+                    <input type="text" value="{{currentdir}}" name="currentdir">
+                    <input type="submit">
+
+
+                </form>
+            </div>
+
+            <div class="ac">
+                <button id="uploadbtn">Upload</button>
+
+            </div>
+
+        </div>
+
+        <div class="b">
+            <script>
+            filename = []
+            </script>
+            {% for a in range(0, number_of_files) %}
+            <div class="ba" id="ba{{a}}">
+                <script>
+                    function clicking() {
+                        var filename = document.getElementsByClassName("filename")
+                        var ba = document.getElementsByClassName('ba')
+                        var filetype = document.getElementsByClassName('filetype')
+                        menu = document.getElementsByClassName('context-menu')[0]
+                        menu.style.display = 'none'
+                        for (var i = 0, len = filename.length; i < len; i++) {
+                            filename[i].style.color = "#3D3D3D"
+                            ba[i].style.background = "white"
+                            filetype[i].style.color = "#222222"
+                        }
+                    }
+                    ba = document.getElementById('ba{{a}}');
+
+                    ba.addEventListener("click", function () {
+                        clicking();
+                        ba = document.getElementById('ba{{a}}');
+                        filetype = document.getElementById('filetype{{a}}')
+                        filename = document.getElementById('filename{{a}}');
+                        ba.style.background = '#303F9F';
+                        filetype.style.color = '#f0f0f0';
+                        filename.style.color = '#FFFFFF';
+                    });
+
+                    ba.addEventListener('mouseout', function () {
+                        document.getElementById('filename{{a}}').innerHTML = '{{filename1[a]}}'
+                    })
+                    ba.addEventListener("mouseover", function () {
+                        document.getElementById('filename{{a}}').innerHTML = '{{filename[a]}}'
+                    })
+                    ba.addEventListener("dblclick", function () {
+                        window.location = '/path?location={{currentdir+ "jf][" +filename[a]}}'
+                    })
+                    filename.push('{{filename[a]}}')
+                    ba.addEventListener('contextmenu', function (ev) {
+                        ev.preventDefault();
+
+                        menu.style.display = 'block'
+                        menu.style.left = ev.pageX + 'px'
+                        menu.style.top = ev.pageY + 'px'
+                        menu.innerText = '{{filename[a]}}' 
+                        
+                        return false;
+                    }, false);
+                </script>
+
+
+                <a class="link">
+                    {% if filetype[a] == "folder" %}
+                    <img src="static/images/folder-blue-icon.png" alt="folder icon" class="icon">
+                    {%else%}
+                    <img src="static/images/file-icon.png" alt="file icon" class="icon">
+                    {% endif %}
+                    <p class="filename" id="filename{{a}}">{{filename1[a]}}</p>
+                    <p class="filetype" id="filetype{{a}}">{{filetype[a]}}</p>
+                </a>
+            </div>
+            {% endfor %}</div>
+
+        <div class="c"></div>
+
+        <div class="context-menu">
+            <div id="context-menu-list">
+                <ul>
+                    <li>Upload</li>
+                    <li>Reload</li>
+                    <li>Logout</li>
+                    <li>Download</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="a3"></div>
+</body>
+<script>
+    filepicker = document.getElementById('file-picker')
+    uploadform = document.getElementById('upload-form')
+    document.getElementById('uploadbtn').addEventListener('click', function () {
+        filepicker.click()
+
+
+    })
+
+    filepicker.onchange = function () {
+        uploadform.submit()
+    };
+
+
+    body = document.getElementsByTagName('body')[0]
+    menu = document.getElementsByClassName('context-menu')[0]
+
+    body.addEventListener('contextmenu', function (ev) {
+        ev.preventDefault();
+
+        menu.style.display = 'block'
+        menu.style.left = ev.pageX + 'px'
+        menu.style.top = ev.pageY + 'px'
+
+        return false;
+    }, false);
+
+    a = document.getElementsByClassName('a')[0]
+    c = document.getElementsByClassName('c')[0]
+    a1 = document.getElementsByClassName('a1')[0]
+    a3 = document.getElementsByClassName('a3')[0]
+    a.addEventListener('click', function () {
+        clicking()
+    })
+    c.addEventListener('click', function () {
+        clicking()
+    })
+    a1.addEventListener('click', function () {
+        clicking()
+    })
+    a3.addEventListener('click', function () {
+        clicking()
+    })
+</script>
+
+</html>
