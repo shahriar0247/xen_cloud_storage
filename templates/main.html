@@ -1,0 +1,198 @@
+<html>
+
+<head>
+    <title>Xen FTP</title>
+    <link rel="stylesheet" href="static/main/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body id="body">
+    <div class="a1">
+        <div class="a1a"> {% set currentdir = currentdir.replace("jf][", "/") %}
+            <p>{{currentdir}}</p>
+        </div>
+    </div>
+    <div class="a2">
+        <div class="a">
+            <form action="/download/" name="download-form" id="download-form" method="POST">
+                <input type="text" name="download-dir" id="download-dir">
+                <input type="text" name="download-name" id="download-name">
+                <input type="submit" id="download-submit">
+            </form>
+            <div class="ab">
+                {% set currentdir = currentdir.replace("jf][", "/") %}
+                <form action="/upload" method="POST" enctype="multipart/form-data" id="upload-form">
+                    <input id="file-picker" type="file" name="_file" multiple>
+                    <input type="text" value="{{currentdir}}" name="currentdir">
+                    <input type="submit">
+
+
+                </form>
+            </div>
+
+            <div class="ac">
+                <button id="uploadbtn">Upload</button>
+
+            </div>
+
+        </div>
+
+        <div class="b">
+            <script>
+                filename = []
+            </script>
+            {% for a in range(0, number_of_files) %}
+            <div class="ba" id="ba{{a}}">
+                <script>
+                    function clicking() {
+                        var filename = document.getElementsByClassName("filename")
+                        var ba = document.getElementsByClassName('ba')
+                        var filetype = document.getElementsByClassName('filetype')
+                        menu = document.getElementsByClassName('context-menu')[0]
+
+                        menu.style.display = 'none'
+                        for (var i = 0, len = filename.length; i < len; i++) {
+                            filename[i].style.color = "#3D3D3D"
+                            ba[i].style.background = "white"
+                            filetype[i].style.color = "#222222"
+                        }
+                    }
+                    ba = document.getElementById('ba{{a}}');
+                    width = document.getElementById("body").offsetWidth
+                    ba.addEventListener("click", function () {
+
+                        if (width > 951) {
+                            clicking();
+                            ba = document.getElementById('ba{{a}}');
+                            filetype = document.getElementById('filetype{{a}}')
+                            filename = document.getElementById('filename{{a}}');
+                            ba.style.background = '#303F9F';
+                            filetype.style.color = '#f0f0f0';
+                            filename.style.color = '#FFFFFF';
+                        }
+                        else {
+                            window.location = '/path?location={{currentdir+ "jf][" +filename[a]}}'
+                        }
+                    });
+
+
+
+                    ba.addEventListener("mouseover", function (ev) {
+
+                        clicking();
+                        ba = document.getElementById('ba{{a}}');
+                        filetype = document.getElementById('filetype{{a}}')
+                        filename = document.getElementById('filename{{a}}');
+                        ba.style.background = '#303F9F';
+                        filetype.style.color = '#f0f0f0';
+                        filename.style.color = '#FFFFFF';
+
+                    })
+                    ba.addEventListener("dblclick", function () {
+                        window.location = '/path?location={{currentdir+ "jf][" +filename[a]}}'
+                    })
+                    filename.push('{{filename[a]}}')
+                    ba.addEventListener('contextmenu', function (ev) {
+                        ev.preventDefault();
+
+                        menu.style.display = 'block'
+                        menu.style.left = ev.pageX + 'px'
+                        menu.style.top = ev.pageY + 'px'
+                        document.getElementById('download-name').value = '{{filename[a]}}';
+                        document.getElementById('download-form').action = '/download/{{filename[a]}}';
+                        document.getElementById('download-dir').value = '{{currentdir}}';
+                        return false;
+                    }, false);
+                </script>
+
+
+                <a class="link">
+                    {% if filetype[a] == "folder" %}
+                    <img src="static/images/folder-blue-icon.png" alt="folder icon" class="icon">
+                    {%else%}
+                    <img src="static/images/file-icon.png" alt="file icon" class="icon">
+                    {% endif %}
+                    <p class="filename" id="filename{{a}}">{{filename1[a]}}</p>
+                    <script>
+                        width = document.getElementById("body").offsetWidth
+                        if (width < 951){
+                        document.getElementById("filename{{a}}").innerText = "{{filename2[a]}}"
+                    }
+                    </script>
+                    <p class="filetype" id="filetype{{a}}">{{filetype1[a]}}</p>
+                </a>
+            </div>
+            {% endfor %}</div>
+
+        <div class="c"></div>
+
+        <div class="context-menu">
+            <div id="context-menu-list">
+                <ul>
+                    <li id="uploadbtn2">Upload</li>
+                    <li>Reload</li>
+                    <li>Logout</li>
+                    <li id="download-btn">Download</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <div class="a3"></div>
+</body>
+<script>
+    filepicker = document.getElementById('file-picker')
+    uploadform = document.getElementById('upload-form')
+    document.getElementById('uploadbtn').addEventListener('click', function () {
+        filepicker.click()
+    })
+    document.getElementById('uploadbtn2').addEventListener('click', function () {
+        filepicker.click()
+    })
+
+
+    filepicker.onchange = function () {
+        uploadform.submit()
+    };
+
+    document.getElementById('download-btn').addEventListener('click', function () {
+        document.getElementById('download-submit').click()
+    })
+
+    body = document.getElementsByTagName('body')[0]
+    menu = document.getElementsByClassName('context-menu')[0]
+
+    body.addEventListener('contextmenu', function (ev) {
+        ev.preventDefault();
+
+        menu.style.display = 'block'
+        menu.style.left = ev.pageX + 'px'
+        menu.style.top = ev.pageY + 'px'
+
+        return false;
+    }, false);
+
+    a = document.getElementsByClassName('a')[0]
+    c = document.getElementsByClassName('c')[0]
+    a1 = document.getElementsByClassName('a1')[0]
+    a2 = document.getElementsByClassName('a2')[0]
+    a3 = document.getElementsByClassName('a3')[0]
+    a.addEventListener('click', function () {
+        clicking()
+    })
+    c.addEventListener('click', function () {
+        clicking()
+    })
+    a1.addEventListener('click', function () {
+        clicking()
+    })
+    a3.addEventListener('click', function () {
+        clicking()
+    })
+
+    a2.addEventListener('mouseout', function () {
+        hovermenu.style.display = 'none'
+    })
+</script>
+
+</html>
