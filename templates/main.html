@@ -1,0 +1,297 @@
+<html>
+
+<head>
+    <title>Xen FTP</title>
+    <link rel="stylesheet" href="static/main/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body id="body">
+    <div class="a1">
+        <div class="a1a"> {% set currentdir = currentdir.replace("jf][", "/") %}
+            <p>{{currentdir}}</p>
+        </div>
+    </div>
+    <div class="a2">
+        <div class="a">
+
+            <form action="/download/" name="download-form" id="download-form" method="POST">
+                <input type="text" name="download-dir" id="download-dir">
+                <input type="text" name="download-name" id="download-name">
+                <input type="submit" id="download-submit">
+            </form>
+
+            <div class="ab">
+
+                {% set currentdir = currentdir.replace("jf][", "/") %}
+                <form action="/upload" method="POST" enctype="multipart/form-data" id="upload-form">
+                    <input id="file-picker" type="file" name="_file" multiple>
+                    <input type="text" value="{{currentdir}}" name="currentdir">
+                    <input type="submit">
+                </form>
+
+            </div>
+
+            <div class="ac">
+                <div class="menu1" id="menu1">
+                    <form action="/htmltopython" method="POST">
+
+
+                        <h2 id="menu1h2"></h2>
+                        <p id="menu1p"></p>
+                        <span id="menu1text1"></span><input type="text" id="menu1text2" name="menu1text2"><br>
+                        <div class="btns">
+                            <p id="menu1btn1">Button 1</p>
+                            <p id="menu1btn2">Button 2</p>
+                            <p id="menu1btn3">Button 3</p>
+                            <p id="menu1btn4">Button 4</p>
+                            <p id="menu1cancel">Cancel</p>
+                        </div>
+                        <input type="text" id="htmltopython" name="htmltopython" style="display: none">
+                        <input type="text" value="{{currentdir}}" name="currentdir1" style="display: none">
+                        <input type="submit" id="actionsubmit" style="display: none">
+
+
+                    </form>
+                </div>
+            </div>
+
+            <div class="ad">
+                <button id="uploadbtn">Upload</button>
+
+            </div>
+
+        </div>
+
+        <div class="b">
+            <script>
+                filename = []
+            </script>
+            {% for a in range(0, number_of_files) %}
+            <div class="ba" id="ba{{a}}">
+                <script>
+                    function clicking() {
+                        var filename = document.getElementsByClassName("filename")
+                        var ba = document.getElementsByClassName('ba')
+                        var filetype = document.getElementsByClassName('filetype')
+
+                        for (var i = 0, len = filename.length; i < len; i++) {
+                            filename[i].style.color = "#3D3D3D"
+                            ba[i].style.background = "white"
+                            filetype[i].style.color = "#222222"
+                        }
+                    }
+                    ba = document.getElementById('ba{{a}}');
+                    width = document.getElementById("body").offsetWidth
+                    ba.addEventListener("click", function () {
+
+                        if (width > 951) {
+                            clicking();
+                            ba = document.getElementById('ba{{a}}');
+                            filetype = document.getElementById('filetype{{a}}')
+                            filename = document.getElementById('filename{{a}}');
+                            ba.style.background = '#303F9F';
+                            filetype.style.color = '#f0f0f0';
+                            filename.style.color = '#FFFFFF';
+                        }
+
+                        window.location = '/path?location={{currentdir+ "jf][" +filename[a]}}'
+                        menu = document.getElementsByClassName('context-menu')[0]
+                        menu.style.display = 'none'
+                    });
+
+
+
+                    ba.addEventListener("mouseover", function (ev) {
+
+                        clicking();
+                        ba = document.getElementById('ba{{a}}');
+                        filetype = document.getElementById('filetype{{a}}')
+                        filename = document.getElementById('filename{{a}}');
+                        ba.style.background = '#303F9F';
+                        filetype.style.color = '#f0f0f0';
+                        filename.style.color = '#FFFFFF';
+
+                    })
+                    ba.addEventListener("dblclick", function () {
+                        window.location = '/path?location={{currentdir+ "jf][" +filename[a]}}'
+                    })
+                    filename.push('{{filename[a]}}')
+                    ba.addEventListener('contextmenu', function (ev) {
+                        ev.preventDefault();
+
+                        menu.style.display = 'block'
+                        menu.style.left = ev.pageX + 'px'
+                        menu.style.top = ev.pageY + 'px'
+                        filename3 = '{{filename[a]}}'
+                        document.getElementById('download-name').value = filename3
+                        document.getElementById('download-form').action = '/download/{{filename[a]}}';
+                        document.getElementById('download-dir').value = '{{currentdir}}';
+
+
+                        return false;
+                    }, false);
+
+
+                </script>
+
+
+                <a class="link">
+                    {% if filetype[a] == "folder" %}
+                    <img src="static/images/folder-blue-icon.png" alt="folder icon" class="icon">
+                    {%else%}
+                    <img src="static/images/file-icon.png" alt="file icon" class="icon">
+                    {% endif %}
+                    <p class="filename" id="filename{{a}}">{{filename1[a]}}</p>
+                    <script>
+                        width = document.getElementById("body").offsetWidth
+                        if (width < 951) {
+                            document.getElementById("filename{{a}}").innerText = "{{filename2[a]}}"
+                        }
+                    </script>
+                    <p class="filetype" id="filetype{{a}}">{{filetype1[a]}}</p>
+                </a>
+            </div>
+            {% endfor %}</div>
+
+        <div class="c"></div>
+
+        <div class="context-menu">
+            <div id="context-menu-list">
+                <ul>
+                    <li id="new-folder">New folder</li>
+                    <li id="new-file">New file</li>
+                    <li id="uploadbtn2">Upload</li>
+                    <li id="delete">Delete</li>
+                    <li id="download-btn">Download</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <div class="a3"></div>
+</body>
+<script>
+    filepicker = document.getElementById('file-picker')
+    uploadform = document.getElementById('upload-form')
+    document.getElementById('uploadbtn').addEventListener('click', function () {
+        filepicker.click()
+    })
+    document.getElementById('uploadbtn2').addEventListener('click', function () {
+        filepicker.click()
+    })
+
+
+    filepicker.onchange = function () {
+        uploadform.submit()
+    };
+
+    document.getElementById('download-btn').addEventListener('click', function () {
+        document.getElementById('download-submit').click()
+    })
+
+    body = document.getElementsByTagName('body')[0]
+    menu = document.getElementsByClassName('context-menu')[0]
+
+    body.addEventListener('contextmenu', function (ev) {
+        ev.preventDefault();
+
+        menu.style.display = 'block'
+        menu.style.left = ev.pageX + 'px'
+        menu.style.top = ev.pageY + 'px'
+        
+        if (filename3 == '[object HTMLParagraphElement]') {
+            delete1.style.display = 'none'
+        }
+        else {
+            delete1.style.display = 'block'
+        }
+
+
+        return false;
+    }, false);
+
+    a = document.getElementsByClassName('a')[0]
+    c = document.getElementsByClassName('c')[0]
+    a1 = document.getElementsByClassName('a1')[0]
+    a2 = document.getElementsByClassName('a2')[0]
+    a3 = document.getElementsByClassName('a3')[0]
+    a.addEventListener('click', function () {
+        clicking()
+        nocont()
+    })
+    c.addEventListener('click', function () {
+        clicking()
+        nocont()
+    })
+    a1.addEventListener('click', function () {
+        clicking()
+        nocont()
+    })
+    a3.addEventListener('click', function () {
+        clicking()
+        nocont()
+    })
+
+
+    menu1 = document.getElementById('menu1')
+    new_folder = document.getElementById('new-folder')
+
+    htmltopython = document.getElementById('htmltopython')
+    new_folder.addEventListener('click', function () {
+        htmltopython.value = 'new-folder'
+        menu1.style.display = 'block'
+        document.getElementById('menu1btn1').innerText = 'Create Folder'
+        document.getElementById('menu1h2').innerText = 'Create a new folder'
+        document.getElementById('menu1p').innerText = 'Type the name of the folder you want to create and press on \'Create folder\''
+        document.getElementById('menu1text1').innerText = 'Folder name'
+        document.getElementById('menu1btn1').style.display = 'block'
+        document.getElementById('menu1cancel').style.display = 'block'
+        document.getElementById('menu1text2').style.display = 'block'
+
+
+
+        nocont()
+    })
+    delete1 = document.getElementById('delete');
+
+
+
+    delete1.addEventListener('click', function () {
+        htmltopython.value = 'delete%20,,@#"' + filename3 + '"';
+        menu1.style.display = 'block';
+        document.getElementById('menu1h2').innerText = 'Delete folder \'' + filename3 + '\'';
+        document.getElementById('menu1btn1').innerText = 'Delete Folder';
+        document.getElementById('menu1p').innerText = 'Are you sure you want to delete the folder?';
+        document.getElementById('menu1btn1').style.display = 'block';
+        document.getElementById('menu1cancel').style.display = 'block';
+        nocont()
+    })
+
+    document.getElementById('menu1btn1').addEventListener('click', function () {
+        document.getElementById('actionsubmit').click()
+    })
+
+    new_file = document.getElementById('new-file')
+
+
+    new_file.addEventListener('click', function () {
+
+    })
+
+    function nocont() {
+        menu = document.getElementsByClassName('context-menu')[0]
+        menu.style.display = 'none'
+    }
+
+    menu1cancel = document.getElementById('menu1cancel')
+    menu1cancel.addEventListener('click', function () {
+        menu1.style.display = 'none'
+    })
+
+
+
+
+</script>
+
+</html>
