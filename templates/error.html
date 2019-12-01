@@ -1,0 +1,36 @@
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        font-size: 110%;
+    }
+
+    .a {
+        background: #3936ffbe;
+       margin: 20px;
+        border-radius: 20px;
+        color: white;
+
+        padding: 20px;
+
+    }
+
+    #b {margin-top: 100px;}
+</style>
+
+<div class="a">{{error}}</div>
+<div id="b">Redirecting in 5 seconds</div>
+
+<script>
+    seconds = 5
+    setInterval(function () {
+        seconds = seconds - 1
+        if (seconds > -1){
+        document.getElementById("b").innerHTML = "Redirecting in " + seconds + " seconds"
+    }
+    else{
+        currentdir = "/path?location={{currentdir}}"
+        window.location  = currentdir
+    }
+    }, 1000)
+</script>
