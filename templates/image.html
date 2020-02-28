@@ -1,0 +1,25 @@
+<html>
+
+<head>
+    <title>Xen FTP image viewer</title>
+    <link rel="stylesheet" href="static/image-style/image.css">
+</head>
+
+<body>
+    <div class="a"></div>
+
+    <div class="b"><a><img src="data:image/png;base64,{{imagecontents}}" id='img' alt="" onclick=changeimagesisize()>
+    </div>
+
+    <div class="c"></div>
+</body>
+<script>
+    img = document.getElementById('img')
+
+    function changeimagesisize() {
+        img.style.width = "100%"
+        img.style.margin = "0"
+    }
+</script>
+
+</html>
