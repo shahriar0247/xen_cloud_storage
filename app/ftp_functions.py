@@ -27,8 +27,7 @@ def htmltopython():
             return redirect('/path?location=' + currentdir2)
         elif action.startswith('delete'):
             action = action.split('%20,,@#')
-            os.system('mv ' + main_dir +currentdir + '/'  + action[1] + ' ' + delete_dir + action[1] + '\\ ' + str(datetime.datetime.now()).replace(' ', ''))
-            
+            os.system('mv "' + main_dir +currentdir + '/'  + action[1] + '" "' + delete_dir + action[1] + ' ' + str(datetime.datetime.now()).replace(' ', '') + '"')
             return redirect('/path?location=' + currentdir2)
         else:
             return 'error1'

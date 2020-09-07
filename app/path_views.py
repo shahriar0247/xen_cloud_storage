@@ -1,7 +1,7 @@
 
 from app import app
 from flask import session, render_template, request, redirect
-from app import functions
+from app import process_files
 import os
 import magic
 
@@ -25,7 +25,7 @@ def main():
             if request.files:
                 location = request.args.get('location')
                 
-                currentdir = functions.getcurrentdir(functions.dirloc+location, session['username'])
+                currentdir = process_files.getcurrentdir(process_files.dirloc+location, session['username'])
                 _file = request.files['_file']
                 _file.save(os.path.join(currentdir, _file.filename))
 
@@ -36,12 +36,12 @@ def main():
             else:
                 location = request.args.get('location')
             
-            path = functions.dirloc + "/"+session['username'] + location 
+            path = process_files.dirloc + "/"+session['username'] + location 
         
          
             if os.path.isdir(path):
                 
-                filename, filetype, currentdir, filename1, filename2, filetype1, currentfold2 = functions.getfolderlist(location, session['username'] +"/")
+                filename, filetype, currentdir, filename1, filename2, filetype1, currentfold2 = process_files.getfolderlist(location, session['username'] +"/")
             
                 if filename == "error":
                     return render_template("error.html")
@@ -49,10 +49,10 @@ def main():
                     number_of_files = len(filename)
                     return render_template("main.html", filename=filename, filetype=filetype, currentdir=currentdir, number_of_files=number_of_files, filename1=filename1, filename2=filename2, filetype1=filetype1, currentfold2=currentfold2)
             elif 'ASCII' in magic.from_file(path):
-                filecontents = functions.openasciitext(path)
+                filecontents = process_files.openasciitext(path)
                 return render_template('file.html', filecontents=filecontents)
             elif 'image' in magic.from_file(path):
-                imagecontents = functions.openimage(path)
+                imagecontents = process_files.openimage(path)
                 return render_template('image.html', imagecontents=imagecontents)
 
             else:
