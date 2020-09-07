@@ -36,18 +36,18 @@ def main():
             else:
                 location = request.args.get('location')
             
-            path = process_files.dirloc + "/"+session['username'] + location 
+            path = os.path.join(process_files.dirloc, os.path.join(session['username'],location[1:]))
         
          
             if os.path.isdir(path):
                 
-                filename, filetype, currentdir, filename1, filename2, filetype1, currentfold2 = process_files.getfolderlist(location, session['username'] +"/")
+                filename, filetype, currentdir, filename1, filename2, filetype1, currentfold2 = process_files.getfolderlist(location, session['username'])
             
                 if filename == "error":
                     return render_template("error.html")
                 else:
                     number_of_files = len(filename)
-                    return render_template("main.html", filename=filename, filetype=filetype, currentdir=currentdir, number_of_files=number_of_files, filename1=filename1, filename2=filename2, filetype1=filetype1, currentfold2=currentfold2)
+                    return render_template("main.html", filename=filename, filetype=filetype, number_of_files=number_of_files, filename1=filename1, filename2=filename2, filetype1=filetype1, currentfold2=currentfold2)
             elif 'ASCII' in magic.from_file(path):
                 filecontents = process_files.openasciitext(path)
                 return render_template('file.html', filecontents=filecontents)

@@ -28,7 +28,7 @@ def getfolderlist(dirloc, username):
                 filetype.append("folder")
             filename.append(singlefile)
         currentdir = os.getcwd()
-        
+
         for a in filename:
             if len(a) > 22:
                 a = a[:19] + "..."
@@ -45,11 +45,11 @@ def getfolderlist(dirloc, username):
             if len(c) > 20:
                 c = c[:17] + '...'
             filetype1.append(c)
-        currentfold2 = currentdir.replace(main_dir + username.replace("/",""), '')
+        currentfold2 = currentdir.replace(main_dir + username, '')
        
         return filename, filetype, currentdir, filename1, filename2, filetype1, currentfold2
     except:
-        return "error", "error","error","error","error", "error" 
+        return "error", "error","error","error","error", "error", "error" 
 
 def openasciitext(location):
     filecontents = open(location,"r").readlines()
@@ -63,7 +63,6 @@ def openimage(location):
 
 def getcurrentdir(dirloc, username):
     dirloc = main_dir + dirloc + username
- 
     os.chdir(dirloc)
     currentdir= os.getcwd()
     return currentdir

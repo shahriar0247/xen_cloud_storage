@@ -11,18 +11,19 @@ def uploadfile():
 
             _file = request.files['_file']
             
-            
-            currentfold2 = session['username'] + "/"+ request.form['currentfold2'] 
-            currentfold3 = request.form['currentfold2'] 
-            print(currentfold2)
-            print(currentfold3)
-            print("------------------------------------------------")
-            if _file.filename in os.listdir(currentfold3):
+            location = request.form['currentfold2'][1:]
+            absolute_location = os.path.join(main_dir, os.path.join(session['username'], location))
+            print("--------------------")
+            print(main_dir)
+            print(session['username'])
+            print(location)
+            print("--------------------")
+            if _file.filename in os.listdir(absolute_location):
                 error = "File/Folder with the name '" + _file.filename + "' already exists in the server!" 
-                return render_template("error.html", error=error, currentdir=currentfold3)
-            _file.save(currentfold3+'/' +_file.filename)
-            return render_template("upload2.html", url='/path?location=' + currentfold3)
-            #return redirect('/path?location=' + currentfold3)
+                return render_template("error.html", error=error, currentdir=absolute_location)
+            _file.save(absolute_location+'/' +_file.filename)
+            return render_template("upload2.html", url='/path?location=/' + location)
+            #return redirect('/path?location=' + location)
     
 
 @app.route('/download/<path>', methods=['POST'])
