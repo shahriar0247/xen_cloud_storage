@@ -13,11 +13,6 @@ def uploadfile():
             
             location = request.form['currentfold2'][1:]
             absolute_location = os.path.join(main_dir, os.path.join(session['username'], location))
-            print("--------------------")
-            print(main_dir)
-            print(session['username'])
-            print(location)
-            print("--------------------")
             if _file.filename in os.listdir(absolute_location):
                 error = "File/Folder with the name '" + _file.filename + "' already exists in the server!" 
                 return render_template("error.html", error=error, currentdir=absolute_location)
