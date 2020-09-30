@@ -4,7 +4,7 @@ $white1: rgb(238, 238, 238);
   $blue1: rgb(49, 114, 255);
   $black1: #222222;
   $black2: rgba(0, 0, 0, 0.548);
-
+$purple1: #5d4bea;
 html,
 body{
   margin: 0;
@@ -42,7 +42,11 @@ div{
   width: 50%;
 }
 
-
+.icon2{
+  min-width: 30px;
+  max-width: 30px;
+  vertical-align: middle;
+}
 .button {
   color: $blue1;
   border: 2px solid white;
@@ -54,7 +58,33 @@ div{
  
 
 }
+.middle1{
+  margin: 10px;
+  width: 300px;
+  padding-right: 4px;
+  border-right: $blue1 1px solid;
+}
 
+.folder{
+margin-bottom: 10px;
+transition: all 100ms;
+padding: 10px;
+}
+.folder:hover{
+  color: white;
+  background: $purple1;
+
+  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.466);
+}
+.middle1head{
+  margin: 0;
+  margin-top: 10px;
+  padding-bottom:10px;
+  padding-left: 10px;
+
+  border-bottom: $blue1 1px solid;
+
+}
 .topbtns{
   margin:auto;
 }
@@ -295,6 +325,7 @@ min-width: 10px;
   
   transition: all 200ms;
   overflow: visible;
+  margin: 10px;
 }
 
 .ba a {

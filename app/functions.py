@@ -30,19 +30,19 @@ def getfolderlist(dirloc, username):
         
         for a in filename:
             if len(a) > 22:
-                a = a[:19] + "..."
+                a = a[:17] + "..."
             filename1.append(a)
 
 
         for b in filename:
             if len(b) > 14:
-                b = b[:11] + "..."
+                b = b[:9] + "..."
             filename2.append(b)
 
 
         for c in filetype:
             if len(c) > 20:
-                c = c[:17] + '...'
+                c = c[:15] + '...'
             filetype1.append(c)
         currentfold2 = currentdir.replace(os.getcwd() + "/files/ftp/" + username.replace("/",""), '')
        

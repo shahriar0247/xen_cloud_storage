@@ -37,28 +37,6 @@ body.addEventListener('contextmenu', function (ev) {
     return false;
 }, false);
 
-// a = document.getElementsByClassName('a')[0]
-// c = document.getElementsByClassName('c')[0]
-// a1 = document.getElementsByClassName('a1')[0]
-// a2 = document.getElementsByClassName('a2')[0]
-// a3 = document.getElementsByClassName('a3')[0]
-// a.addEventListener('click', function () {
-//     clicking()
-//     nocont()
-// })
-// c.addEventListener('click', function () {
-//     clicking()
-//     nocont()
-// })
-// a1.addEventListener('click', function () {
-//     clicking()
-//     nocont()
-// })
-// a3.addEventListener('click', function () {
-//     clicking()
-//     nocont()
-// })
-
 document.addEventListener('click', function () {
     clicking()
     nocont()

@@ -41,6 +41,12 @@ div {
   width: 50%;
 }
 
+.icon2 {
+  min-width: 30px;
+  max-width: 30px;
+  vertical-align: middle;
+}
+
 .button {
   color: #3172ff;
   border: 2px solid white;
@@ -50,6 +56,35 @@ div {
   height: 40px;
   border-radius: 7px;
   margin: 4px !important;
+}
+
+.middle1 {
+  margin: 10px;
+  width: 300px;
+  padding-right: 4px;
+  border-right: #3172ff 1px solid;
+}
+
+.folder {
+  margin-bottom: 10px;
+  -webkit-transition: all 100ms;
+  transition: all 100ms;
+  padding: 10px;
+}
+
+.folder:hover {
+  color: white;
+  background: #5d4bea;
+  -webkit-box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.466);
+          box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.466);
+}
+
+.middle1head {
+  margin: 0;
+  margin-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  border-bottom: #3172ff 1px solid;
 }
 
 .topbtns {
@@ -321,6 +356,7 @@ div {
   -webkit-transition: all 200ms;
   transition: all 200ms;
   overflow: visible;
+  margin: 10px;
 }
 
 .ba a {
