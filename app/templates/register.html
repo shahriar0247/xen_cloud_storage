@@ -8,35 +8,35 @@
 
 <body>
     <div id="bg"></div>
-    <div class="a">
-        <div class="aa">
-            <header>
-                <h2>Xen Register</h2>
-            </header>
-        </div>
-        <div class="ab">
-
-        </div>
+    <div class="head">
+        <h2>Xen Register</h2>
     </div>
-    <div class="b">
+    <div class="middle">
+        <h2>Register</h2>
         <form action="/register" method="POST">
-
-
-            <p>Username</p>
-            <input type="text" class="input textbox" name="username">
-
-
-            <p>Password</p>
-            <input type="password" class="input textbox" name="password">
-
+           
+            <p><span class="inputname"> Username </span><br>
+                <input type="text" class="input textbox" name="username" onchange="TestOnTextChange(this)">
+            </p>
+            <br>
+            <p><span class="inputname">Email</span><br>
+                <input type="text" class="input textbox"  onchange="TestOnTextChange(this)" name="email">
+            </p><br>
+            <p><span class="inputname">Password</span><br>
+                <input type="password" class="input textbox" name="password"  onchange="TestOnTextChange(this)">
+            </p><br>
+            <p><span class="inputname">Confirm Password</span><br>
+                <input type="password" class="input textbox" name="password2"  onchange="TestOnTextChange(this)">
+            </p> <br><br>
             <input type="submit" value="Register" class="button input">
 
         </form>
-        <a href="/Login" class="register">Login</a>
-    </div>
-    <div class="c">
+        <script src="/static/login/login.js"></script>
+
 
     </div>
+    <a href="/Login" class="register">Already have an account? Login in</a>
+
 </body>
 
 </html>

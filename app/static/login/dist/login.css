@@ -5,18 +5,16 @@ html, body {
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 #bg {
-  -webkit-clip-path: polygon(100% 0, 100% 79%, 43% 100%, 0 100%, 0 0);
-          clip-path: polygon(100% 0, 100% 79%, 43% 100%, 0 100%, 0 0);
+  clip-path: polygon(100% 0, 100% 79%, 43% 100%, 0 100%, 0 0);
   background: #427eff;
   width: 100%;
   height: 100%;
   position: absolute;
   z-index: -1;
-  -webkit-transition: 1s all;
   transition: 1s all;
 }
 
@@ -29,14 +27,11 @@ body {
 
 .middle {
   background: white;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
   width: fit-content;
   padding: 40px;
   padding-top: 20px;
   border-radius: 20px;
-  -webkit-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.377);
-          box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.377);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.377);
   margin: 20px;
   color: rgba(0, 0, 0, 0.815);
   margin-left: 40%;
@@ -54,23 +49,12 @@ body {
 .inputname {
   position: relative;
   bottom: -20px;
-  -webkit-animation: inputnamehover2 200ms;
-          animation: inputnamehover2 200ms;
+  animation: inputnamehover2 200ms;
 }
 
 .inputnamehover {
-  -webkit-animation: inputnamehover 200ms;
-          animation: inputnamehover 200ms;
+  animation: inputnamehover 200ms;
   bottom: 0px;
-}
-
-@-webkit-keyframes inputnamehover {
-  0% {
-    bottom: -20px;
-  }
-  100% {
-    bottom: 0px;
-  }
 }
 
 @keyframes inputnamehover {
@@ -81,16 +65,6 @@ body {
     bottom: 0px;
   }
 }
-
-@-webkit-keyframes inputnamehover2 {
-  0% {
-    bottom: 0px;
-  }
-  100% {
-    bottom: -20px;
-  }
-}
-
 @keyframes inputnamehover2 {
   0% {
     bottom: 0px;
@@ -99,7 +73,6 @@ body {
     bottom: -20px;
   }
 }
-
 .textbox {
   outline: none;
   border: none;
@@ -129,17 +102,13 @@ body {
   padding-bottom: 10px;
   outline: none;
   border: #427eff solid 1px;
-  -webkit-transition: 200ms all;
   transition: 200ms all;
   width: 100%;
-  -webkit-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.568);
-          box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.568);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.568);
 }
 
 .button:hover {
   opacity: 0.9;
   border: #427eff solid 1px;
-  -webkit-box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.568);
-          box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.568);
+  box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.568);
 }
-/*# sourceMappingURL=login.css.map */
