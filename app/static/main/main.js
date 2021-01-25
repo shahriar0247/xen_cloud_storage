@@ -25,21 +25,31 @@ body.addEventListener('contextmenu', function (ev) {
     menu.style.display = 'block'
     menu.style.left = ev.pageX + 'px'
     menu.style.top = ev.pageY + 'px'
-
-    if (filename3 == '[object HTMLParagraphElement]') {
-        delete1.style.display = 'none'
+    try {
+        if (filename3 == '[object HTMLParagraphElement]') {
+            delete1.style.display = 'none'
+        }
+        else {
+            delete1.style.display = 'block'
+        }
+    
+    } catch (error) {
+        
     }
-    else {
-        delete1.style.display = 'block'
-    }
-
+   
 
     return false;
 }, false);
 
 document.addEventListener('click', function () {
-    clicking()
     nocont()
+    try {
+        clicking()
+    } catch (error) {
+        
+    }
+
+
 })
 
 menu1 = document.getElementById('menu1')
@@ -89,13 +99,6 @@ delete1.addEventListener('click', function () {
 
 document.getElementById('menu1btn1').addEventListener('click', function () {
     document.getElementById('actionsubmit').click()
-})
-
-new_file = document.getElementById('new-file')
-
-
-new_file.addEventListener('click', function () {
-
 })
 
 function nocont() {

@@ -1,40 +1,29 @@
-<html>
+{% extends "login_register_base.html" %}
 
-<head>
-    <title>Xen Login</title>
-    <link rel="stylesheet" href="static/login/login.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
 
-<body>
-    <div id="bg"></div>
-    <div class="head">
-        <h2>Xen Register</h2>
-    </div>
-    <div class="middle">
-        <h2>Login</h2>
-        <form action="/login" method="POST">
+{% block content %}
+<div class="middle">
+    <h2>Login</h2>
+    <form action="/login" method="POST">
 
-    
-            <p><span class="inputname"> Username or Email</span><br>
-                <input type="text" class="input textbox" name="username" required>
-            </p>
-            <br>
-        
-            <p><span class="inputname">Password</span><br>
-                <input type="password" class="input textbox" name="password" required>
-            </p><br>
-             <br><br>
-            <input type="submit" value="Login" class="button input">
 
-        </form>
-
-      
-
+        <p><span class="inputname">Username or Email</span><br>
+            <input type="text" class="input textbox" name="username" required>
+        </p>
         <br>
-        <a href="/Login" class="register">Already have an account? Login in</a>
-    </div>
-    <script src="/static/login/login.js"></script>
-</body>
 
-</html>
+        <p><span class="inputname">Password</span><br>
+            <input type="password" class="input textbox" name="password" required>
+        </p><br>
+    
+        <input type="submit" value="Login" class="button input">
+
+    </form>
+
+
+
+    <br>
+    <a href="/sign_up" class="sign_up">Don't have an account? Sign up</a>
+</div>
+
+{% endblock %}

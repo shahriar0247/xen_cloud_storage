@@ -1,0 +1,38 @@
+{% extends "login_register_base.html" %}
+
+
+{% block content %}
+<div class="middle">
+    <h2>Sign up</h2>
+    <form action="/sign_up" method="POST">
+
+
+
+
+        <p><span class="inputname">Username</span><br>
+            <input type="text" class="input textbox" name="username" required>
+        </p>
+        <br>
+
+        <p><span class="inputname">Email</span><br>
+            <input type="text" class="input textbox" name="email" required>
+        </p>
+        <br>
+        <p><span class="inputname">Password</span><br>
+            <input type="password" class="input textbox" name="password" required>
+        </p><br>
+        <p><span class="inputname">Confirm Password</span><br>
+            <input type="password" class="input textbox" name="password2" required>
+        </p><br>
+
+        <input type="submit" value="Sign up" class="button input">
+
+    </form>
+
+    <br>
+
+    <a href="/login" class="sign_up">Already have an account? Login</a>
+</div>
+
+
+{% endblock %}
