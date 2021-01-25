@@ -57,13 +57,21 @@ new_folder = document.getElementById('new-folder')
 
 htmltopython = document.getElementById('htmltopython')
 new_folder.addEventListener('click', function () {
+
     htmltopython.value = 'new-folder'
+
     menu1.style.display = 'block'
+
     document.getElementById('menu1btn1').innerText = 'Create Folder'
     document.getElementById('menu1h2').innerText = 'Create a new folder'
     document.getElementById('menu1p').innerText = 'Type the name of the folder you want to create and press on \'Create folder\''
     document.getElementById('menu1text1').innerText = 'Folder name'
+
+    
     document.getElementById('menu1btn1').style.display = 'block'
+    document.getElementById('menu1h2').style.display = 'block'
+    document.getElementById('menu1p').style.display = 'block'
+    document.getElementById('menu1text1').style.display = 'block'
     document.getElementById('menu1cancel').style.display = 'block'
     document.getElementById('menu1text2').style.display = 'block'
 
@@ -84,16 +92,23 @@ delete1 = document.getElementById('delete');
 
 
 delete1.addEventListener('click', function () {
-    htmltopython.value = 'delete%20,,@#' + filename3;
-    console.log(htmltopython.value)
 
+    htmltopython.value = 'delete%20,,@#' + filename3;
 
     menu1.style.display = 'block';
+
     document.getElementById('menu1h2').innerText = 'Delete folder \'' + filename3 + '\'';
     document.getElementById('menu1btn1').innerText = 'Delete Folder';
     document.getElementById('menu1p').innerText = 'Are you sure you want to delete the folder?';
-    document.getElementById('menu1btn1').style.display = 'block';
-    document.getElementById('menu1cancel').style.display = 'block';
+
+
+    document.getElementById('menu1btn1').style.display = 'block'
+    document.getElementById('menu1h2').style.display = 'block'
+    document.getElementById('menu1p').style.display = 'block'
+    document.getElementById('menu1text1').style.display = 'none'
+    document.getElementById('menu1cancel').style.display = 'block'
+    document.getElementById('menu1text2').style.display = 'none'
+
     nocont()
 })
 

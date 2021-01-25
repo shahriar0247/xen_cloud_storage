@@ -47,17 +47,6 @@ div {
   vertical-align: middle;
 }
 
-.button {
-  color: #3172ff;
-  border: 2px solid white;
-  -webkit-transition: all 200ms;
-  transition: all 200ms;
-  background: white;
-  height: 40px;
-  border-radius: 7px;
-  margin: 4px !important;
-}
-
 .middle1 {
   margin: 10px;
   width: 300px;
@@ -109,12 +98,28 @@ div {
 
 .functionbtns .button {
   width: 100px;
+  height: 40px;
+  font-size: 95%;
+}
+
+.button {
+  color: #5d4bea;
+  color: #eeeeee;
+  -webkit-transition: all 200ms;
+  transition: all 200ms;
+  background: white;
+  height: 40px;
+  border-radius: 4px;
+  margin: 4px !important;
+  background-color: #3172ff;
+  border: 2px solid white;
 }
 
 .button:hover {
+  background: white;
   color: #eeeeee;
-  background-color: #3172ff;
-  border: 2px solid white;
+  border: 2px solid #3172ff;
+  color: #3172ff;
 }
 
 .button:active {
@@ -435,29 +440,47 @@ div {
   left: 0;
   height: 100%;
   width: 100%;
-  padding: 20%;
   color: white;
-  background: rgba(29, 29, 29, 0.779);
+  background: rgba(0, 0, 0, 0.561);
   display: none;
   z-index: 10;
 }
 
-.menu1 .btns p {
-  border: white 1px solid;
-  padding: 1%;
-  width: auto;
-  max-width: 10%;
+.menu_block {
+  position: relative;
+  width: 400px;
+  top: 30%;
+  margin: auto;
+  border-radius: 5px;
+  background-color: #5d4bea;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 20px;
+  padding-bottom: 25px;
+}
+
+.menu_block .btns p {
+  margin-top: 0;
+  padding: 10px;
+  border-radius: 3px;
   -webkit-transition: 200ms all;
   transition: 200ms all;
+  border: white 2px solid;
 }
 
-.menu1 .btns p:hover {
-  background: white;
-  color: black;
+.menu_block .btns p:hover {
+  background-color: white;
+  color: #5d4bea;
 }
 
-.menu1 #menu1text1 {
-  margin: 2%;
+.menu_input {
+  height: 30px;
+  width: 100%;
+  outline: none;
+  border-radius: 3px;
+  border: none;
+  padding-left: 10px;
+  margin-top: 10px;
 }
 
 .hidden {
