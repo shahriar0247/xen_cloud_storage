@@ -41,8 +41,8 @@ def main():
          
             if os.path.isdir(path):
                 
-                filename, filetype, currentdir, filename1, filename2, filetype1, currentfold2 = process_files.getfolderlist(location, session['username'])
-                filename21, filetype2, currentdir2, filename12, filename22, filetype12, currentfold22 = process_files.getfolderlist("/", session['username'])
+                filename, filetype, currentdir, filename1, filename2, filetype1, currentfold2, filesize = process_files.getfolderlist(location, session['username'])
+                filename21, filetype2, currentdir2, filename12, filename22, filetype12, currentfold22, filesize = process_files.getfolderlist("/", session['username'])
 
                 if filename == "error":
                     return render_template("error.html")
@@ -50,7 +50,7 @@ def main():
                     number_of_files = len(filename)
                     number_of_files2 = len(filename21)
                     
-                    return render_template("main.html", filename=filename, filetype=filetype, currentdir=currentdir, filename1=filename1, filename2=filename2, filetype1=filetype1, currentfold2=currentfold2, number_of_files=number_of_files, filename21=filename21, filetype2=filetype2, currentdir2=currentdir2, filename12=filename12, filename22=filename22, filetype12=filetype12, currentfold22=currentfold22, number_of_files2=number_of_files2)
+                    return render_template("main.html", filename=filename, filetype=filetype, currentdir=currentdir, filename1=filename1, filename2=filename2, filetype1=filetype1, currentfold2=currentfold2, number_of_files=number_of_files, filename21=filename21, filetype2=filetype2, currentdir2=currentdir2, filename12=filename12, filename22=filename22, filetype12=filetype12, currentfold22=currentfold22, number_of_files2=number_of_files2, filesize=filesize)
             elif 'ASCII' in magic.from_file(path):
                 filecontents = process_files.openasciitext(path)
                 return render_template('file.html', filecontents=filecontents)

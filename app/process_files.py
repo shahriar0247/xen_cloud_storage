@@ -21,12 +21,15 @@ def getfolderlist(dirloc, username):
         filename1 = []
         filename2 = []
         filetype1 = []
+        filesize = []
         for singlefile in dirlist:
             try:
                 filetype.append(magic.from_file(singlefile))
             except:
                 filetype.append("folder")
             filename.append(singlefile)
+            filesize.append(os.path.getsize(singlefile))
+
         currentdir = os.getcwd()
 
         for a in filename:
@@ -47,9 +50,9 @@ def getfolderlist(dirloc, username):
             filetype1.append(c)
         currentfold2 = currentdir.replace(main_dir + username, '')
        
-        return filename, filetype, currentdir, filename1, filename2, filetype1, currentfold2
+        return filename, filetype, currentdir, filename1, filename2, filetype1, currentfold2, filesize
     except:
-        return "error", "error","error","error","error", "error", "error" 
+        return "error", "error","error","error","error", "error", "error", "error"
 
 def openasciitext(location):
     filecontents = open(location,"r").readlines()

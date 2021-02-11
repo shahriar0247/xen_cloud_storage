@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Xen Cloud Storage</title>
+    <title>XenXoid Cloud Storage</title>
     <link rel="stylesheet" href="static/main/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -9,7 +9,7 @@
 <body id="body">
     <div class="top">
         <div class="top1">
-            Xen Cloud Storage
+            Xen<span class="accent_color">Xoid</span> Cloud Storage
         </div>
         <div class="top2">
             <div class="topbtns">
@@ -25,7 +25,19 @@
 
     <div class="middle">
         <div class="middle1">
-            <div class="folder" id="home">Home Directory</div>
+          <div class="buttons">
+              <p>Something</p>
+            <p id="uploadbtn" class="button2">Upload</p>
+          </div>
+          <div class="home_dirs">
+           
+            <input
+            type="text"
+            class="input textbox"
+            placeholder="Search"
+          />
+
+            <div class="folder" id="home">Home Directory </div>
             <script>
                 home = document.getElementById("home")
 
@@ -73,26 +85,11 @@
             {% endfor %}
 
 
-
+</div>
         </div>
 
         <div class="middle2">
 
-            <div class="functionbtns">
-                <button id="uploadbtn" class="button">Upload</button>
-            </div>
-
-            <!-- <div class="gridbtns">
-                <span>Grid size</span>
-                <button onclick="setgrid(1)" class="button">1</button>
-                <button onclick="setgrid(2)" class="button">2</button>
-                <button onclick="setgrid(3)" class="button">3</button>
-                <button onclick="setgrid(4)" class="button">4</button>
-                <button onclick="setgrid(5)" class="button">5</button>
-                <button onclick="setgrid('auto')" class="button">Auto</button>
-
-
-            </div> -->
             <div class="folders foldersall">
                 <script>
                     filename = []

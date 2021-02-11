@@ -5,6 +5,12 @@ $white1: rgb(238, 238, 238);
   $black1: #222222;
   $black2: rgba(0, 0, 0, 0.548);
 $purple1: #5d4bea;
+$colorPrimary: #2CD889;
+$colorPrimaryDark: #001064;
+$colorPrimaryLight: #5f5fc4;
+$colorAccent: #ff1744;
+
+
 html,
 body{
   margin: 0;
@@ -24,13 +30,11 @@ div{
   font-size: 140%;
   font-weight: bold;
   padding-left: 40px;
-  color: $blue1;
+  color: #646D82;
 }
 .top2{
-  background: $blue1;
-  color: white;
-  display: grid;
-  grid-template-columns: 1fr 3fr;
+  color:$colorPrimary;
+text-align: center;
 }
 .top2 p{
   margin-left: 20px;
@@ -48,10 +52,44 @@ div{
   vertical-align: middle;
 }
 .middle1{
-  margin: 10px;
+  margin: 20px;
+  margin-top: 0;
+  margin-bottom: 0;
   width: 300px;
   padding-right: 4px;
   border-right: $blue1 1px solid;
+  border: 1px solid black;
+  padding: 20px;
+}
+.button2{
+  color: $colorPrimary;
+
+}
+.middle1 .buttons{
+display: grid;
+grid-template-columns: 2fr 1fr;
+
+margin-bottom: 0;
+}
+.middle1 #uploadbtn{
+  text-align: right;
+ 
+}
+.input {
+  background: none;
+  border: none;
+  outline: none;
+   border: 2px solid #08080828;
+  border-bottom: 2px solid $colorPrimary;
+
+  backdrop-filter: blur(10px);
+ 
+  padding: 10px;
+  padding-left: 15px;
+  transition: all 200ms;
+
+  width: 100%;
+
 }
 
 .folder{
@@ -443,3 +481,7 @@ border: white 2px solid;
 
 
 .hidden{display:none}
+
+.accent_color{
+  color: $colorPrimary;
+}

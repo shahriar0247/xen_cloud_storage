@@ -1,29 +1,53 @@
-{% extends "login_register_base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xenxoid Synx</title>
+    <link rel="stylesheet" href="static/login/login.css" />
+  </head>
 
+  <body>
+    <div class="a">
+      <div class="cover_img">
+        <img src="/static/images/2.jpg" alt="cover_img" />
+      </div>
+      <div class="right">
+        <div class="main">
+          <h1>XENXOID <span class="accent_text">SYNX</span></h1>
 
-{% block content %}
-<div class="middle">
-    <h2>Login</h2>
-    <form action="/login" method="POST">
+          <p class="hint">
+            Enter the password from your phone to show phone's files
+          </p>
 
+          <form action="/login" method="POST">
+            <h2>Login</h2>
 
-        <p><span class="inputname">Username or Email</span><br>
-            <input type="text" class="input textbox" name="username" required>
-        </p>
-        <br>
+            <input
+              type="text"
+              class="input textbox"
+              name="username"
+              placeholder="Username or Email"
+              required
+            />
 
-        <p><span class="inputname">Password</span><br>
-            <input type="password" class="input textbox" name="password" required>
-        </p><br>
-    
-        <input type="submit" value="Login" class="button input">
+            <input
+              type="password"
+              class="input textbox"
+              name="password"
+              placeholder="Password"
+              required
+            />
 
-    </form>
+            <input type="submit" value="Login" class="button" />
+          </form>
 
-
-
-    <br>
-    <a href="/sign_up" class="sign_up">Don't have an account? Sign up</a>
-</div>
-
-{% endblock %}
+          <br />
+          <br />
+          <a href="/sign_up" class="sign_up">Don't have an account? Sign up</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

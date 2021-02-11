@@ -1,145 +1,92 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-html, body {
-  padding: 0;
+html,
+body {
   margin: 0;
+  padding: 0;
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-#bg {
-  -webkit-clip-path: polygon(100% 0, 100% 79%, 43% 100%, 0 100%, 0 0);
-          clip-path: polygon(100% 0, 100% 79%, 43% 100%, 0 100%, 0 0);
-  background: #427eff;
+img {
+  min-height: 100vh;
   width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: -1;
-  -webkit-transition: 1s all;
-  transition: 1s all;
+  overflow: hidden;
+  image-rendering: optimizeSpeed;
 }
 
-.head {
-  color: white;
-  padding: 100px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+.a {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 3fr 2fr;
+      grid-template-columns: 3fr 2fr;
 }
 
-.middle {
-  background: white;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  padding: 40px;
-  padding-top: 20px;
-  border-radius: 20px;
-  -webkit-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.377);
-          box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.377);
-  margin: 20px;
-  color: rgba(0, 0, 0, 0.815);
-  margin-left: 40%;
+.accent_text {
+  color: #2CD889;
 }
 
-.middle form {
-  padding-left: 50px;
-  padding-right: 50px;
+.main {
+  text-align: center;
+  margin: 60px;
+  margin-top: 100px;
 }
 
-.middle h2 {
-  margin-bottom: 40px;
-}
-
-.inputname {
-  position: relative;
-  bottom: -20px;
-  -webkit-animation: inputnamehover2 200ms;
-          animation: inputnamehover2 200ms;
-}
-
-.inputnamehover {
-  -webkit-animation: inputnamehover 200ms;
-          animation: inputnamehover 200ms;
-  bottom: 0px;
-}
-
-@-webkit-keyframes inputnamehover {
-  0% {
-    bottom: -20px;
-  }
-  100% {
-    bottom: 0px;
-  }
-}
-
-@keyframes inputnamehover {
-  0% {
-    bottom: -20px;
-  }
-  100% {
-    bottom: 0px;
-  }
-}
-
-@-webkit-keyframes inputnamehover2 {
-  0% {
-    bottom: 0px;
-  }
-  100% {
-    bottom: -20px;
-  }
-}
-
-@keyframes inputnamehover2 {
-  0% {
-    bottom: 0px;
-  }
-  100% {
-    bottom: -20px;
-  }
-}
-
-.textbox {
-  outline: none;
-  border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.377);
-  height: 30px;
-  width: 400px;
-  padding-left: 1px;
-}
-
-.sign_up {
-  color: #5d4bea;
-  text-decoration: none;
-  padding: 20px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border-radius: 7px;
-  margin: 20px;
+.hint {
+  color: #646D82;
 }
 
 .button {
-  background: #427eff;
-  color: white;
-  border: none;
+  background-color: #2CD889;
+  padding: 13px;
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-left: 100px;
+  margin-right: 100px;
   border-radius: 5px;
-  padding: 20px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  outline: none;
-  border: #427eff solid 1px;
-  -webkit-transition: 200ms all;
-  transition: 200ms all;
-  width: 100%;
-  -webkit-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.568);
-          box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.568);
+  color: white;
+  font-weight: bold;
+  font-size: 100%;
+  border: 2px #2CD889 solid;
+  -webkit-transition: all 200ms;
+  transition: all 200ms;
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  margin-top: 15px;
 }
 
 .button:hover {
-  opacity: 0.9;
-  border: #427eff solid 1px;
-  -webkit-box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.568);
-          box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.568);
+  background-color: white;
+  color: #2CD889;
+}
+
+.input {
+  background: none;
+  border: none;
+  outline: none;
+  border: 1px solid #08080828;
+  border-bottom: 2px solid #2CD889;
+  width: 60%;
+  margin-left: 5%;
+  margin-right: 5%;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  -webkit-box-shadow: -5px 3px 10px 1px rgba(0, 0, 0, 0.39);
+          box-shadow: -5px 3px 10px 1px rgba(0, 0, 0, 0.39);
+  padding: 10px;
+  padding-left: 15px;
+  -webkit-transition: all 200ms;
+  transition: all 200ms;
+  margin-top: 15px;
+}
+
+.input:hover {
+  -webkit-box-shadow: -6px 4px 7px 1px rgba(0, 0, 0, 0.39);
+          box-shadow: -6px 4px 7px 1px rgba(0, 0, 0, 0.39);
+}
+
+form {
+  margin-top: 100px;
 }
 /*# sourceMappingURL=login.css.map */

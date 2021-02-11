@@ -1,123 +1,88 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+$colorPrimary: #2CD889;
+$colorPrimaryDark: #001064;
+$colorPrimaryLight: #5f5fc4;
+$colorAccent: #ff1744;
 
-$white1: rgb(238, 238, 238);
-$blue1: rgb(66, 126, 255);
-$black1: #222222;
-$black2: rgba(0, 0, 0, 0.377);
-$purple1: #5d4bea;
-
-html, body{
-    padding:0;
-    margin:0;
+html,
+body {
+  margin: 0;
+  padding: 0;
 }
 body{
-    font-family: 'Roboto', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   
 }
 
-#bg {
-    clip-path: polygon(100% 0, 100% 79%, 43% 100%, 0 100%, 0 0);
-    background: $blue1;
+img{
+    min-height: 100vh;
     width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: -1;
-    transition: 1s all;
-}
-
-.head{
-    color: white;
-    padding: 100px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-.middle{
-    background:white;
-    width: fit-content;
-    padding: 40px;
-    padding-top: 20px;
-  
-    border-radius: 20px;
-    box-shadow: 0 0 10px 1px $black2;
-    margin: 20px;
-    color: rgba(0, 0, 0, 0.815);
-    margin-left: 40%;
-}
-.middle form{
-    padding-left: 50px;
-    padding-right: 50px;
-}
-.middle h2{
-    margin-bottom: 40px;
-}
-.inputname{
-   position: relative;
-   bottom: -20px;
-   animation: inputnamehover2 200ms;
-}
-.inputnamehover{
-    animation: inputnamehover 200ms;
-    bottom: 0px;
-}
-
-@keyframes inputnamehover{
-    0%{
-        bottom:-20px;
-    }
-    100%{
-        bottom: 0px;
-    }
-}
-@keyframes inputnamehover2{
-    0%{
-        bottom:0px;
-    }
-    100%{
-        bottom: -20px;
-    }
-}
-.textbox{
-    outline:none;
-    border: none;
-    border-bottom: 1px solid $black2;
+    overflow: hidden;
+    image-rendering: optimizeSpeed;
     
-    height: 30px;
-    width: 400px;
-   padding-left: 1px;
-
-
+}
+.a {
+    display: grid;
+  grid-template-columns: 3fr 2fr;
+}
+.accent_text{
+    color: $colorPrimary;
 }
 
-
-.sign_up{
-    color: $purple1;
-    text-decoration: none;
-    padding: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-radius: 7px;
-    margin:20px;
-  
+.main{
+    text-align: center;
+    margin: 60px;
+    margin-top: 100px;
 }
-
+.hint{
+    color: #646D82;
+}
 .button{
-    background: $blue1;
-    color: white;
-    border: none;
+    background-color: $colorPrimary;
+    padding: 13px;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-left: 100px;
+    margin-right: 100px;
     border-radius: 5px;
-    padding: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    outline: none;
-    border: $blue1 solid 1px;
-    transition:200ms all;
-   width: 100%;
-   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.568);
+    color: white;
+    font-weight: bold;
+    font-size: 100%;
+    border: 2px $colorPrimary solid;
+    transition: all 200ms;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    margin-top: 15px;
+
 }
 
 .button:hover{
-    opacity: 0.9;
-    border: $blue1 solid 1px;
-    box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.568);
+background-color: white;
+color: $colorPrimary;
+}
+
+.input {
+    background: none;
+    border: none;
+    outline: none;
+     border: 1px solid #08080828;
+    border-bottom: 2px solid $colorPrimary;
+    width: 60%;
+    margin-left: 5%;
+    margin-right: 5%;
+    backdrop-filter: blur(10px);
+    box-shadow: -5px 3px 10px 1px rgba(0, 0, 0, 0.39);
+    padding: 10px;
+    padding-left: 15px;
+    transition: all 200ms;
+    margin-top: 15px;
+  
+}
+
+.input:hover{
+    box-shadow: -6px 4px 7px 1px rgba(0, 0, 0, 0.39);
+}
+
+form{
+
+    margin-top: 100px;
 }

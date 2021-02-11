@@ -19,16 +19,12 @@ div {
   font-size: 140%;
   font-weight: bold;
   padding-left: 40px;
-  color: #3172ff;
+  color: #646D82;
 }
 
 .top2 {
-  background: #3172ff;
-  color: white;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 3fr;
-      grid-template-columns: 1fr 3fr;
+  color: #2CD889;
+  text-align: center;
 }
 
 .top2 p {
@@ -48,10 +44,45 @@ div {
 }
 
 .middle1 {
-  margin: 10px;
+  margin: 20px;
+  margin-top: 0;
+  margin-bottom: 0;
   width: 300px;
   padding-right: 4px;
   border-right: #3172ff 1px solid;
+  border: 1px solid black;
+  padding: 20px;
+}
+
+.button2 {
+  color: #2CD889;
+}
+
+.middle1 .buttons {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 1fr;
+      grid-template-columns: 2fr 1fr;
+  margin-bottom: 0;
+}
+
+.middle1 #uploadbtn {
+  text-align: right;
+}
+
+.input {
+  background: none;
+  border: none;
+  outline: none;
+  border: 2px solid #08080828;
+  border-bottom: 2px solid #2CD889;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  padding: 10px;
+  padding-left: 15px;
+  -webkit-transition: all 200ms;
+  transition: all 200ms;
+  width: 100%;
 }
 
 .folder {
@@ -485,5 +516,9 @@ div {
 
 .hidden {
   display: none;
+}
+
+.accent_color {
+  color: #2CD889;
 }
 /*# sourceMappingURL=main.css.map */
