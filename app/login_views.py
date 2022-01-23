@@ -31,7 +31,7 @@ def sign_up():
             if len(request.form['password']) < 63 and len(request.form['password']) > 7:
                 hashedpass = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
            
-                database.awaiting_users.insert_one({'users':request.form['username'], 'password': hashedpass})
+                database.users.insert_one({'users':request.form['username'], 'password': hashedpass})
                 return redirect(url_for('login'))
             return 'Please use a password more then 8 characters and less then 63 characters. <a href="/sign_up">Try again.<a>'
         return 'User exists. <a href="/login">Login?<a>'
