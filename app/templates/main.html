@@ -18,7 +18,10 @@
 
             </div>
             <p> Home{{currentfold2.replace("/"," > ")}}</p>
+            <div class="error">
+                {{get_flashed_messages(category_filter=["error"])}}
 
+            </div>
         </div>
 
     </div>

@@ -1,6 +1,7 @@
-from app import app
-from flask import session, request, render_template,send_from_directory
+from app import app, database
+from flask import flash, redirect, session, request, render_template,send_from_directory
 import os
+import settings
 
 from app.setting_dir import temp_dir, main_dir, delete_dir 
 
@@ -16,9 +17,18 @@ def uploadfile():
             if _file.filename in os.listdir(absolute_location):
                 error = "File/Folder with the name '" + _file.filename + "' already exists in the server!" 
                 return render_template("error.html", error=error, currentdir=absolute_location)
-            _file.save(absolute_location+'/' +_file.filename)
-            return render_template("upload2.html", url='/path?location=/' + location)
-            #return redirect('/path?location=' + location)
+            real_file_location = absolute_location+'/' +_file.filename
+            _file.save(real_file_location)
+            size = os.stat(real_file_location).st_size
+            storage_after_upload = database.storage.find_one({'users':session['username']})["stored_size"] + size
+            print(storage_after_upload)
+            if (storage_after_upload) > settings.USER.max_storage:
+                os.remove(real_file_location)
+                flash('You are exceeding storage size limit, file is not uploaded', "error")
+            else:
+                pass
+                database.storage.update_one({'users':session['username']},{ "$set": {"stored_size": storage_after_upload}})
+            return redirect('/path?location=/' + location)
     
 
 @app.route('/download/<path>', methods=['POST'])

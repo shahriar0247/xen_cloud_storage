@@ -2,6 +2,8 @@ from app import app
 from app import database
 from flask import request, url_for, redirect, session, render_template
 import bcrypt
+import os
+from app.setting_dir import main_dir
 
 @app.route('/login', methods=['POST','GET'])
 def login():
@@ -15,8 +17,7 @@ def login():
             
                 return redirect(url_for('main'))
             return 'Invalid Password <a href="/login">Try again</a>'
-        elif database.awaiting_users.find_one({'users': request.form['username']}):
-            return 'Awaiting for manual authentication'
+     
         return 'User does not exists do you want to <a href="/sign_up">sign_up</a>'
 
     elif request.method == 'GET':
@@ -32,6 +33,8 @@ def sign_up():
                 hashedpass = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
            
                 database.users.insert_one({'users':request.form['username'], 'password': hashedpass})
+                database.storage.insert_one({'users':request.form['username'], "stored_size": 0})
+                os.mkdir(os.path.join(main_dir, request.form['username']))
                 return redirect(url_for('login'))
             return 'Please use a password more then 8 characters and less then 63 characters. <a href="/sign_up">Try again.<a>'
         return 'User exists. <a href="/login">Login?<a>'
