@@ -1,42 +1,41 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
 $white1: rgb(238, 238, 238);
-  $blue1: rgb(49, 114, 255);
-  $black1: #222222;
-  $black2: rgba(0, 0, 0, 0.548);
+$blue1: rgb(49, 114, 255);
+$black1: #222222;
+$black2: rgba(0, 0, 0, 0.548);
 $purple1: #5d4bea;
-$colorPrimary: #2CD889;
+$colorPrimary: #2cd889;
 $colorPrimaryDark: #001064;
 $colorPrimaryLight: #5f5fc4;
 $colorAccent: #ff1744;
 
-
 html,
-body{
+body {
   margin: 0;
   padding: 0;
   cursor: default;
 }
 
 body {
-  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
 
-div{
+div {
   z-index: 1;
 }
-.top1{
+.top1 {
   padding: 20px;
   font-size: 140%;
   font-weight: bold;
   padding-left: 40px;
-  color: #646D82;
+  color: #646d82;
 }
-.top2{
-  color:$colorPrimary;
-text-align: center;
+.top2 {
+  color: $colorPrimary;
+  text-align: center;
 }
-.top2 p{
+.top2 p {
   margin-left: 20px;
 }
 
@@ -46,12 +45,12 @@ text-align: center;
   width: 50%;
 }
 
-.icon2{
+.icon2 {
   min-width: 30px;
   max-width: 30px;
   vertical-align: middle;
 }
-.middle1{
+.middle1 {
   margin: 20px;
   margin-top: 0;
   margin-bottom: 0;
@@ -61,77 +60,71 @@ text-align: center;
   border: 1px solid black;
   padding: 20px;
 }
-.button2{
+.button2 {
   color: $colorPrimary;
-
 }
-.middle1 .buttons{
-display: grid;
-grid-template-columns: 2fr 1fr;
+.middle1 .buttons {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
 
-margin-bottom: 0;
+  margin-bottom: 0;
 }
-.middle1 #uploadbtn{
+.middle1 #uploadbtn {
   text-align: right;
- 
 }
 .input {
   background: none;
   border: none;
   outline: none;
-   border: 2px solid #08080828;
+  border: 2px solid #08080828;
   border-bottom: 2px solid $colorPrimary;
 
   backdrop-filter: blur(10px);
- 
+
   padding: 10px;
   padding-left: 15px;
   transition: all 200ms;
 
   width: 100%;
-
 }
 
-.folder{
-margin-bottom: 10px;
-transition: all 100ms;
-padding: 10px;
+.folder {
+  margin-bottom: 10px;
+  transition: all 100ms;
+  padding: 10px;
 }
-.folder:hover{
+.folder:hover {
   color: white;
   background: $purple1;
 
   box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.466);
 }
-.middle1head{
+.middle1head {
   margin: 0;
   margin-top: 10px;
-  padding-bottom:10px;
+  padding-bottom: 10px;
   padding-left: 10px;
 
   border-bottom: $blue1 1px solid;
+}
+.topbtns {
+  margin: auto;
+}
 
+.gridbtns {
+  margin: auto;
 }
-.topbtns{
-  margin:auto;
-}
-
-.gridbtns{
-  margin:auto;
-}
-.gridbtns span{
+.gridbtns span {
   font-size: 90%;
 }
-.gridbtns .button{
+.gridbtns .button {
   width: 45px !important;
-
 }
 
-.gridbtns .button:nth-child(7){
+.gridbtns .button:nth-child(7) {
   width: 70px !important;
-
 }
-.functionbtns .button{
+.functionbtns .button {
   width: 100px;
   height: 40px;
   font-size: 95%;
@@ -147,7 +140,6 @@ padding: 10px;
   margin: 4px !important;
   background-color: $blue1;
   border: 2px solid white;
-
 }
 .button:hover {
   background: white;
@@ -155,19 +147,18 @@ padding: 10px;
   border: 2px solid $blue1;
   color: $blue1;
 }
-.button:active{
+.button:active {
   background-color: $blue1;
   border: 2px solid white;
   opacity: 0.7;
 }
-.button:focus{
+.button:focus {
   outline: none;
 }
 
-.middle{
-  display:grid;
+.middle {
+  display: grid;
   grid-template-columns: 1fr 3fr;
- 
 }
 .folders {
   border: 2px solid rgba(69, 113, 255, 0.281);
@@ -185,40 +176,39 @@ padding: 10px;
   grid-template-columns: 1fr 1fr 1fr;
 }
 .folders4 {
-  grid-template-columns: 1fr 1fr 1fr 1fr ;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 .folders5 {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
-.ba{
+.ba {
   transition: all 200ms;
-position: relative;
-right: 0;
-top:0;
-padding: 10px;
-min-width: 10px;
+  position: relative;
+  right: 0;
+  top: 0;
+  padding: 10px;
+  min-width: 10px;
 }
-.ba:hover{
+.ba:hover {
   box-shadow: 5px 5px 3px 1px rgba(0, 0, 0, 0.548);
   background: rgba(128, 0, 128, 0.664);
   color: white;
   right: 4px;
-  top:4px
+  top: 4px;
 }
-.ba img{
+.ba img {
   opacity: 0.8;
   transition: 200ms all;
 }
-.ba:hover img{
+.ba:hover img {
   opacity: 1;
 }
-.ba 
-.ba_new{
+.ba .ba_new {
   background: black;
 }
 
-.functionbtns{
+.functionbtns {
   margin: auto;
 }
 @media (max-width: 4000px) {
@@ -247,13 +237,13 @@ min-width: 10px;
 
 @media (max-width: 1400px) {
   .foldersall {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; 
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   }
 }
 
 @media (max-width: 1200px) {
   .foldersall {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
 }
 
@@ -261,19 +251,14 @@ min-width: 10px;
   .foldersall {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
-  .topbtns{
+  .topbtns {
     grid-template-columns: 1fr;
-    
-   }
-  
- 
-
+  }
 }
 
 @media (max-width: 900px) {
   .foldersall {
     grid-template-columns: 1fr 1fr 1fr;
-  
   }
 }
 
@@ -283,89 +268,81 @@ min-width: 10px;
   }
 }
 
-
 @media (max-width: 600px) {
   .foldersall {
     grid-template-columns: 1fr 1fr 1fr;
   }
-  .middle{
+  .middle {
     grid-template-columns: 1fr;
   }
-  .middle1{
+  .middle1 {
     display: none;
   }
-  .button{
+  .button {
     margin-top: 8px !important;
     margin-bottom: 4px !important;
   }
-  .top2{
+  .top2 {
     grid-template-columns: 1fr;
-   
   }
-  .top2 p{
+  .top2 p {
     margin: 4px;
     margin-bottom: 6px;
   }
 
- .gridbtns .button:nth-child(7){
-  display: none;
-}
-.gridbtns{
-  margin-left: 10px;
-  
-}
-  
+  .gridbtns .button:nth-child(7) {
+    display: none;
+  }
+  .gridbtns {
+    margin-left: 10px;
+  }
 }
 
 @media (max-width: 400px) {
-  .icon{
+  .icon {
     display: block;
-  margin-left: auto;
-  margin-right: auto 
+    margin-left: auto;
+    margin-right: auto;
   }
   .foldersall {
     grid-template-columns: 1fr 1fr;
   }
-  .button:nth-child(5){
+  .button:nth-child(5) {
     display: none;
   }
-  .button:nth-child(6){
+  .button:nth-child(6) {
     display: none;
   }
 }
-
 
 @media (max-width: 300px) {
   .foldersall {
     grid-template-columns: 1fr 1fr;
   }
-  .middle{
+  .middle {
     grid-template-columns: 1fr;
   }
-  .topbtns{
+  .topbtns {
     grid-template-columns: 1fr;
-    
-   }
- 
-  .button:nth-child(4){
+  }
+
+  .button:nth-child(4) {
     display: none;
   }
-  .gridbtns{
+  .gridbtns {
     margin-left: 4px;
-    
   }
 }
 @media (max-width: 200px) {
   .foldersall {
     grid-template-columns: 1fr;
   }
-  .gridbtns{
+  .gridbtns {
     display: none;
   }
 }
 
 .ba {
-  
   transition: all 200ms;
   overflow: visible;
   margin: 10px;
@@ -403,7 +380,7 @@ min-width: 10px;
   list-style: none;
   margin-left: -7%;
 }
-#context-menu-list:hover{
+#context-menu-list:hover {
   background: rgba(255, 255, 255, 0.904);
   box-shadow: 14px 14px 5px $black2;
   top: 10px;
@@ -421,16 +398,15 @@ min-width: 10px;
   padding-left: 20px;
   margin: 10px;
   margin-left: -20px;
- 
 }
-#context-menu-list ul li:hover{
+#context-menu-list ul li:hover {
   box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.548);
 }
 #download-form {
   display: none;
 }
 
-.menu1{
+.menu1 {
   position: fixed;
   top: 0;
   left: 0;
@@ -442,33 +418,33 @@ min-width: 10px;
   display: none;
   z-index: 10;
 }
-.menu_block{
+.menu_block {
   position: relative;
   width: 400px;
 
   top: 30%;
   margin: auto;
-border-radius: 5px;
-background-color: $purple1;
-padding-left: 50px;
-padding-right: 50px;
-padding-top: 20px;
-padding-bottom: 25px;
+  border-radius: 5px;
+  background-color: $purple1;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 20px;
+  padding-bottom: 25px;
 }
 
 .menu_block .btns p {
   margin-top: 0;
-padding:10px;
-border-radius: 3px;
-transition: 200ms all;
-border: white 2px solid;
+  padding: 10px;
+  border-radius: 3px;
+  transition: 200ms all;
+  border: white 2px solid;
 }
 
-.menu_block .btns p:hover{
+.menu_block .btns p:hover {
   background-color: white;
   color: $purple1;
 }
-.menu_input{
+.menu_input {
   height: 30px;
   width: 100%;
   outline: none;
@@ -479,9 +455,10 @@ border: white 2px solid;
   margin-top: 10px;
 }
 
+.hidden {
+  display: none;
+}
 
-.hidden{display:none}
-
-.accent_color{
+.accent_color {
   color: $colorPrimary;
 }

@@ -7,7 +7,7 @@ body {
 }
 
 body {
-  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
 
 div {
@@ -19,11 +19,11 @@ div {
   font-size: 140%;
   font-weight: bold;
   padding-left: 40px;
-  color: #646D82;
+  color: #646d82;
 }
 
 .top2 {
-  color: #2CD889;
+  color: #2cd889;
   text-align: center;
 }
 
@@ -55,7 +55,7 @@ div {
 }
 
 .button2 {
-  color: #2CD889;
+  color: #2cd889;
 }
 
 .middle1 .buttons {
@@ -75,7 +75,7 @@ div {
   border: none;
   outline: none;
   border: 2px solid #08080828;
-  border-bottom: 2px solid #2CD889;
+  border-bottom: 2px solid #2cd889;
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
   padding: 10px;
@@ -231,8 +231,7 @@ div {
   opacity: 1;
 }
 
-.ba
-.ba_new {
+.ba .ba_new {
   background: black;
 }
 
@@ -519,6 +518,6 @@ div {
 }
 
 .accent_color {
-  color: #2CD889;
+  color: #2cd889;
 }
 /*# sourceMappingURL=main.css.map */
