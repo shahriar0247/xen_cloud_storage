@@ -1,15 +1,11 @@
-from flask import Flask, redirect, render_template, request, session, abort, send_from_directory, url_for
-import webbrowser
-import zipfile
-import os
+from flask import Flask, redirect,request, session
 import datetime
-import magic
-
+import settings
 
 
 app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = 100 * 1024 * 1024
-app.secret_key = os.urandom(12)
+app.config['SECRET_KEY'] = settings.FLASK.secret_key
 
 
 from app import process_files
