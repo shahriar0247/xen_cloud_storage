@@ -1,7 +1,7 @@
 from app import app, database
 from flask import flash, redirect, send_file, session, request, render_template,send_from_directory
 import os
-import settings
+import SETTINGS
 
 from app.setting_dir import temp_dir, main_dir, delete_dir 
 
@@ -23,7 +23,7 @@ def uploadfile():
             size = os.stat(real_file_location).st_size
             storage_after_upload = database.storage.find_one({'users':session['username']})["stored_size"] + size
             print(storage_after_upload)
-            if (storage_after_upload) > settings.USER.max_storage:
+            if (storage_after_upload) > SETTINGS.USER.max_storage:
                 os.remove(real_file_location)
                 flash('You are exceeding storage size limit, file is not uploaded', "error")
             else:

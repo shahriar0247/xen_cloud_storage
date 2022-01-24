@@ -1,11 +1,11 @@
 from flask import Flask, redirect,request, session
 import datetime
-import settings
+import SETTINGS
 
 
 app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = 100 * 1024 * 1024
-app.config['SECRET_KEY'] = settings.FLASK.secret_key
+app.config['SECRET_KEY'] = SETTINGS.FLASK.secret_key
 
 
 from app import process_files
