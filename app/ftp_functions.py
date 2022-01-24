@@ -1,4 +1,4 @@
-from app import app
+from app import app, database
 from flask import request, session, render_template, redirect, url_for
 import os
 from app.setting_dir import temp_dir, main_dir, delete_dir 
@@ -30,7 +30,11 @@ def htmltopython():
             return redirect('/path?location=/' + currentdir2)
         elif action.startswith('delete'):
             action = action.split('%20,,@#')
-            os.system('mv "' + main_dir +currentdir + '/'  + action[1] + '" "' + delete_dir + action[1] + ' ' + str(datetime.datetime.now()).replace(' ', '') + '"')
+            filename = main_dir +currentdir + '/'  + action[1]
+            size = os.stat(filename).st_size
+            new_filename = delete_dir + action[1] + ' ' + str(datetime.datetime.now()).replace(' ', '')
+            database.storage.update_one({'users':session['username']},{ "$set": {"stored_size": size}})
+            os.system('mv "'+filename+'" "' + new_filename + '"')
             return redirect('/path?location=/' + currentdir2)
         else:
             return 'error1'

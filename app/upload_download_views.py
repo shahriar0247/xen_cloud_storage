@@ -1,5 +1,5 @@
 from app import app, database
-from flask import flash, redirect, session, request, render_template,send_from_directory
+from flask import flash, redirect, send_file, session, request, render_template,send_from_directory
 import os
 import settings
 
@@ -15,8 +15,9 @@ def uploadfile():
             location = request.form['currentfold2'][1:]
             absolute_location = os.path.join(main_dir, os.path.join(session['username'], location))
             if _file.filename in os.listdir(absolute_location):
-                error = "File/Folder with the name '" + _file.filename + "' already exists in the server!" 
-                return render_template("error.html", error=error, currentdir=absolute_location)
+                error = "File named '" + _file.filename + "' already exists in the server!" 
+                flash(error, "error")
+                return redirect('/path?location=/' + location)
             real_file_location = absolute_location+'/' +_file.filename
             _file.save(real_file_location)
             size = os.stat(real_file_location).st_size
@@ -53,8 +54,7 @@ def download(path):
             
             os.system('zip -r ' + zip_file + download_file)
             
-
-            return send_from_directory(temp_dir,download_name + ".zip")
+            return send_file(os.path.join(temp_dir,download_name + ".zip"), as_attachment=True)
            
 
-        return send_from_directory(download_dir,download_name)
+        return send_file(os.path.join(download_dir,download_name), as_attachment=True)
