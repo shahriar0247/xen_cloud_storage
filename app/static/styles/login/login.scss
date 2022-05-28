@@ -1,0 +1,90 @@
+$colorPrimary: #2cd889;
+$colorPrimary2: #49e29b;
+$colorPrimaryDark: #001064;
+$colorPrimaryLight: #5f5fc4;
+$colorAccent: #ff1744;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
+
+img {
+  min-height: 100vh;
+
+  width: 100%;
+  overflow: hidden;
+  image-rendering: optimizeSpeed;
+}
+.a {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+}
+.accent_text {
+  color: $colorPrimary;
+}
+.login_center {
+  display: flex;
+  align-items: center;
+  height: 70%;
+}
+header {
+  height: 10%;
+}
+.main {
+  text-align: center;
+  padding: 5%;
+  height: 100%;
+}
+.hint {
+  color: #646d82;
+}
+.button {
+  background-color: $colorPrimary;
+  padding: 13px;
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-left: 100px;
+  margin-right: 100px;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  font-size: 100%;
+  border: 2px $colorPrimary solid;
+  transition: background 200ms;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  margin-top: 15px;
+}
+
+.button:hover {
+  background-color: $colorPrimary2;
+  border: 2px $colorPrimary2 solid;
+}
+
+.input {
+  background: none;
+  border: none;
+  outline: none;
+  border: 1px solid #08080828;
+  border-bottom: 2px solid $colorPrimary;
+  width: 300px;
+  height: 40px;
+  margin-left: 5%;
+  margin-right: 5%;
+  backdrop-filter: blur(10px);
+  box-shadow: -5px 3px 10px 1px rgba(0, 0, 0, 0.39);
+  padding-left: 15px;
+  transition: box-shadow 200ms;
+  margin-top: 15px;
+  border-radius: 5px;
+}
+
+.input:hover {
+  box-shadow: -6px 4px 7px 1px rgba(0, 0, 0, 0.39);
+}

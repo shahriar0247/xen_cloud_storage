@@ -18,14 +18,14 @@ def login():
                 return redirect(url_for('main'))
             return 'Invalid Password <a href="/login">Try again</a>'
      
-        return 'User does not exists do you want to <a href="/sign_up">sign_up</a>'
+        return 'User does not exists do you want to <a href="/signup">signup</a>'
 
     elif request.method == 'GET':
-        return render_template('login.html')
+        return render_template('/login/login.html')
 
 
-@app.route('/sign_up', methods=['POST', 'GET'])
-def sign_up():
+@app.route('/signup', methods=['POST', 'GET'])
+def signup():
     if request.method == 'POST':
         existing_user = database.users.find_one({'users':request.form['username']})
         if existing_user == None:
@@ -36,9 +36,9 @@ def sign_up():
                 database.storage.insert_one({'users':request.form['username'], "stored_size": 0})
                 os.mkdir(os.path.join(main_dir, request.form['username']))
                 return redirect(url_for('login'))
-            return 'Please use a password more then 8 characters and less then 63 characters. <a href="/sign_up">Try again.<a>'
+            return 'Please use a password more then 8 characters and less then 63 characters. <a href="/signup">Try again.<a>'
         return 'User exists. <a href="/login">Login?<a>'
 
     elif request.method == 'GET':
         
-        return render_template('sign_up.html')
+        return render_template('/login/signup.html')

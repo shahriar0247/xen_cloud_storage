@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XenXoid Cloud Login</title>
+    <link rel="stylesheet" href="static/login/login.css" />
+</head>
+
+<body>
+    <div class="a">
+        <div class="cover_img">
+            <img src="/static/images/2.jpg" alt="cover_img" />
+        </div>
+        <div class="right">
+            <div class="main">
+
+                <header>
+                    <h1>Xen <span class="accent_text">Cloud Storage</span></h1>
+
+                    <p class="hint">
+                        Enter the password from your phone to show phone's files
+                    </p>
+                </header>
+                <div class="login_center">
+                    {% block content %} {% endblock %}
+                </div>
+
+                {% block alternative_link %} {% endblock %}
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

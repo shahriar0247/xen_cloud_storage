@@ -6,6 +6,7 @@ body {
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
 }
 
 img {
@@ -23,21 +24,35 @@ img {
 }
 
 .accent_text {
-  color: #2CD889;
+  color: #2cd889;
+}
+
+.login_center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 70%;
+}
+
+header {
+  height: 10%;
 }
 
 .main {
   text-align: center;
-  margin: 60px;
-  margin-top: 100px;
+  padding: 5%;
+  height: 100%;
 }
 
 .hint {
-  color: #646D82;
+  color: #646d82;
 }
 
 .button {
-  background-color: #2CD889;
+  background-color: #2cd889;
   padding: 13px;
   padding-left: 40px;
   padding-right: 40px;
@@ -47,9 +62,9 @@ img {
   color: white;
   font-weight: bold;
   font-size: 100%;
-  border: 2px #2CD889 solid;
-  -webkit-transition: all 200ms;
-  transition: all 200ms;
+  border: 2px #2cd889 solid;
+  -webkit-transition: background 200ms;
+  transition: background 200ms;
   cursor: pointer;
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
@@ -57,8 +72,8 @@ img {
 }
 
 .button:hover {
-  background-color: white;
-  color: #2CD889;
+  background-color: #49e29b;
+  border: 2px #49e29b solid;
 }
 
 .input {
@@ -66,27 +81,26 @@ img {
   border: none;
   outline: none;
   border: 1px solid #08080828;
-  border-bottom: 2px solid #2CD889;
-  width: 60%;
+  border-bottom: 2px solid #2cd889;
+  width: 300px;
+  height: 40px;
   margin-left: 5%;
   margin-right: 5%;
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
   -webkit-box-shadow: -5px 3px 10px 1px rgba(0, 0, 0, 0.39);
           box-shadow: -5px 3px 10px 1px rgba(0, 0, 0, 0.39);
-  padding: 10px;
   padding-left: 15px;
-  -webkit-transition: all 200ms;
-  transition: all 200ms;
+  -webkit-transition: -webkit-box-shadow 200ms;
+  transition: -webkit-box-shadow 200ms;
+  transition: box-shadow 200ms;
+  transition: box-shadow 200ms, -webkit-box-shadow 200ms;
   margin-top: 15px;
+  border-radius: 5px;
 }
 
 .input:hover {
   -webkit-box-shadow: -6px 4px 7px 1px rgba(0, 0, 0, 0.39);
           box-shadow: -6px 4px 7px 1px rgba(0, 0, 0, 0.39);
-}
-
-form {
-  margin-top: 100px;
 }
 /*# sourceMappingURL=login.css.map */

@@ -15,7 +15,7 @@ from app.setting_dir import temp_dir, main_dir, delete_dir
 from app import ftp_functions
 
 
-from app import login_views
+from app.views.login import login_views
 from app import path_views
 from app import upload_download_views
 
@@ -27,7 +27,7 @@ def before_request_app():
     session.permanent = True
     app.permanent_session_lifetime = datetime.timedelta(minutes=30)
     session.modified = True
-    if request.endpoint != "login" and request.endpoint != "static" and request.endpoint != "sign_up":
+    if request.endpoint != "login" and request.endpoint != "static" and request.endpoint != "signup":
         try:
             if session['username']:
                 pass
