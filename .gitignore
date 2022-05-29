@@ -2,3 +2,4 @@
 files
 SETTINGS.py
 venv
+__pycache__

@@ -9,11 +9,15 @@ body {
   overflow: hidden;
 }
 
+.cover_img {
+  overflow: visible;
+}
+
 img {
   min-height: 100vh;
-  width: 100%;
   overflow: hidden;
   image-rendering: optimizeSpeed;
+  z-index: -1;
 }
 
 .a {
@@ -35,6 +39,11 @@ img {
       -ms-flex-align: center;
           align-items: center;
   height: 70%;
+  margin: auto;
+}
+
+.login_center form {
+  margin: auto;
 }
 
 header {
@@ -102,5 +111,10 @@ header {
 .input:hover {
   -webkit-box-shadow: -6px 4px 7px 1px rgba(0, 0, 0, 0.39);
           box-shadow: -6px 4px 7px 1px rgba(0, 0, 0, 0.39);
+}
+
+.inputs {
+  display: -ms-grid;
+  display: grid;
 }
 /*# sourceMappingURL=login.css.map */
